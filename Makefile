@@ -38,5 +38,21 @@ px4-gazebo: gazebo
 		--tag $(REGISTRY)/px4/gazebo:$(GZ_VERSION) \
 		px4
 
+ardupilot-gazebo: gazebo
+	docker build \
+		--file ardupilot/gazebo.Dockerfile \
+		--platform $(PLATFORMS) \
+		--build-arg GZ_VERSION=$(GZ_VERSION) \
+		--tag $(REGISTRY)/ardupilot/gazebo:$(GZ_VERSION) \
+		.
+
+ardupilot-firmware: base
+	docker build \
+		--file ardupilot/firmware.Dockerfile \
+		--platform $(PLATFORMS) \
+		--build-arg GZ_VERSION=$(GZ_VERSION) \
+		--tag $(REGISTRY)/ardupilot/firmware:$(GZCM_VERSION) \
+		.
+
 images: base gazebo px4-firmware px4-gazebo
 
