@@ -1,5 +1,8 @@
 # GZCM
 
+> [!CAUTION]
+> This repository has been moved to [`MultiCoSim`](https://github.com/cpslab-asu/multicosim). Please refer to that project for all future updates.
+
 Library for managing firmware and Gazebo simulation containers
 
 ## Installation
